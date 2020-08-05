@@ -12,27 +12,14 @@ class App extends React.Component {
     movies: [],
   }
 
-  // pruebaGet = () => {
-  //   alert("si entra al pruebaGet")
-  //   let testVar = getFilms()
-  //   this.setState({movies: testVar})
-  //   console.log(this.state.movies);
-  // }
-
   pruebaGet = async () => {
-    const URL = 'https://ghibliapi.herokuapp.com'
-    try {
-        const response = await axios.get(URL+'/films');
-        console.log(response.data);
-        this.setState({movies: response.data})
-        //return response.data;
-    } catch (error) {
-        console.error(error);
-    } }
-
-  waitResponse = ()=>{
+    let testVar = await getFilms();
+    this.setState({movies: testVar})
+    console.log(this.state.movies);
+  }
+  waitResponse =()=>{
       return this.state.isloading && 
-      (<MoviesList movies={this.state.movies}/>);
+      (<MoviesList movies={this.state.movies}/>)
   }
 
   render(){

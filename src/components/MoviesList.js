@@ -1,4 +1,5 @@
 import React from 'react';
+import Movie from './Movie'
 
 
 class MoviesList extends React.Component{
@@ -9,7 +10,7 @@ class MoviesList extends React.Component{
 			<ul>
 				{movies.map((movie,index) =>
 					<li key={movie.id.toString()}>
-						{movie.title}
+						<Movie movie={movie} />
 					</li>
 				)}
 			</ul>
